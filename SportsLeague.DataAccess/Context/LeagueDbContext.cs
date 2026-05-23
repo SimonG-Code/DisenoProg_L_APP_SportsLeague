@@ -24,21 +24,7 @@ namespace SportsLeague.DataAccess.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // ── MatchLineup Configuration ──
-            modelBuilder.Entity<MatchLineup>(entity =>
-            {
-                entity.HasKey(ml => ml.Id);
-
-                entity.Property(ml => ml.IsStarter)
-                      .IsRequired();
-
-                entity.Property(ml => ml.CreatedAt)
-                      .IsRequired();
-
-                entity.Property(ml => ml.UpdatedAt)
-                      .IsRequired(false);
-            });
-
+         
             // ── MatchLineup Configuration ──
             modelBuilder.Entity<MatchLineup>(entity =>
             {

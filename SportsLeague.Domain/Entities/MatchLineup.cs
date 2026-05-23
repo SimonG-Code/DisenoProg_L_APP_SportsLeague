@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SportsLeague.Domain.Entities;
+namespace SportsLeague.Domain.Entities
+{
 
     public class MatchLineup
     {
@@ -30,7 +31,6 @@ namespace SportsLeague.Domain.Entities;
 
         public DateTime? UpdatedAt { get; set; }
 
-    public class ReadMatchLineupDto
-    {
+
     }
 }

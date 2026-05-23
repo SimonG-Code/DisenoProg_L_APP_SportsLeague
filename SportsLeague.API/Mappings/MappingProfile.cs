@@ -2,7 +2,6 @@
 using SportsLeague.API.DTOs;
 using SportsLeague.API.DTOs.Request;
 using SportsLeague.API.DTOs.Response;
-using SportsLeague.API.MatchLineup;
 using SportsLeague.Domain.Entities;
 
 public class MappingProfile : Profile
@@ -63,7 +62,15 @@ public class MappingProfile : Profile
                     opt => opt.MapFrom(src =>
                         src.Player.FirstName + " " + src.Player.LastName));
         // MatchLineup mappings
-        CreateMap<MatchLineup, ReadMatchLineupDto>();
-        }
+        CreateMap<CreateMatchLineupDto, SportsLeague.Domain.Entities.MatchLineup>();
+
+        CreateMap<SportsLeague.Domain.Entities.MatchLineup, MatchLineupDto>()
+            .ForMember(dest => dest.PlayerName,
+                opt => opt.MapFrom(src =>
+                    src.Player.FirstName + " " + src.Player.LastName))
+            .ForMember(dest => dest.TeamName,
+                opt => opt.MapFrom(src =>
+                    src.Player.Team.Name));
+    }
     }
 
