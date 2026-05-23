@@ -13,6 +13,7 @@ namespace SportsLeague.Domain.Entities
         public int Matchday { get; set; } //Fecha dentro de la programación del torneo
         public MatchStatus Status { get; set; } = MatchStatus.Scheduled;
 
+        public ICollection<MatchLineup> MatchLineups { get; set; } = new List<MatchLineup>();
         // Navigation Properties
         public Tournament Tournament { get; set; } = null!;
         public Team HomeTeam { get; set; } = null!;
